@@ -29,4 +29,28 @@ router.get('/', async (req, res) => {
     res.json(users);
   });
   
+  router.get("/post/:id", async (req, res) => {
+    try {
+      const postData = await Post.findByPk(req.params.id, {
+        include: [
+          {
+            model: User,
+          },
+          {
+            model: Comment,
+            include: [User],
+          },
+        ],
+      });
+  
+      const Post = postData.get({ plain: true });
+      res.render("post", {
+        layout: "main",
+        Post,
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+  
   module.exports = router;
