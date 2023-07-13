@@ -19,5 +19,14 @@ router.get('/', async (req, res) => {
   router.get("/login", (req, res) => {
     res.render('login');
   });
+
+  router.get("/list", async (req, res) => {
+    const userData = await User.findAll().catch((err) => {
+      res.json(err);
+    });
+    const users = userData.map((user) => user.get({ plain: true }));
+  
+    res.json(users);
+  });
   
   module.exports = router;
