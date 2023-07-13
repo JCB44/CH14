@@ -19,24 +19,24 @@ router.post("/login", async (req, res) => {
     const userData = await User.findOne({ where: { username: req.body.username } });
   console.log(userData)
     if (!userData) {
-      res.status(400).json({ message: "Sorry but uh no user account found." });
+      res.status(400).json({ message: "no user account found." });
       return;
     }
     
     const validPassword = await userData.checkPassword(req.body.password);
    console.log(validPassword)
     if (!validPassword) {
-      res.status(400).json({ message: "Sorry but uh no user account found." });
+      res.status(400).json({ message: "no user account found." });
       return;
     }
 
     req.session.save(() => {
       req.session.userID = userData.id;
       req.session.logged_in = true;
-    res.json({ user, message: "YAY YOU GOT LOGGED IN!" });
+    res.json({ user, message: "you are logged in" });
     });
   } catch (err) {
-    res.status(400).json({ message: "Sorry but uh no user account found." });
+    res.status(400).json({ message: "no user account found." });
   }
 });
 

@@ -12,13 +12,13 @@ User.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      autoIncrement: true,
       primaryKey: true,
-      autoIncrement: true
+      allowNull: false,
     },
     username: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     password: {
       type: DataTypes.STRING,

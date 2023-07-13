@@ -7,9 +7,9 @@ Post.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
       autoIncrement: true,
+      primaryKey: true,
+      allowNull: false,
     },
     title: {
       type: DataTypes.STRING,
@@ -21,8 +21,8 @@ Post.init(
     },
     date_created: {
       type: DataTypes.DATE,
-      allowNull: false,
       defaultValue: DataTypes.NOW,
+      allowNull: false,
     },
     userID: {
       type: DataTypes.INTEGER,

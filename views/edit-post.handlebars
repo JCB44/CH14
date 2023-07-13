@@ -1,0 +1,33 @@
+<div class="post card">
+  <header class="card-header">
+    <h3 class="card-header-title">Edit Post</h3>
+  </header>
+  <form id="edit-post-form" class="card-content">
+    <input type="hidden" name="post-id" value="{{post.id}}" />
+
+    <div class="field">
+      <label class="label" for="post-title">Title</label>
+      <div class="control">
+        <input type="text" name="post-title" id="post-title" class="input" />
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="label" for="post-body">Content</label>
+      <div class="control">
+        <textarea name="post-body" id="post-body" class="textarea">{{post.body}}</textarea>
+      </div>
+    </div>
+
+    <div class="field is-grouped">
+      <div class="control">
+        <button type="submit" class="button has-background-success">Update</button>
+      </div>
+      <div class="control">
+        <button type="button" id="delete-btn" class="button is-danger">Delete</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script src="/js/edit-post.js"></script>

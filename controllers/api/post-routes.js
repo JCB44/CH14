@@ -38,12 +38,6 @@ router.put("/:id", authorize, (req, res) => {
         where: {
      id: req.params.id},
   });
-  // if (!updated) {
-  //    res.status(404).json({
-  //      message: `You spelled stuff horrible huh?`,
-  //    });
-  //    return;
-  //  }
    res.status(200).json(updated);
 } catch (err) {
   res.status(500).json(err);
@@ -52,18 +46,18 @@ router.put("/:id", authorize, (req, res) => {
 
 router.delete("/:id", authorize, async (req, res) => {
   try {
-    const yeetyeet = await Post.destroy({
+    const perams = await Post.destroy({
       where: {
         id: req.params.id,
       },
     });
-    if (!yeetyeet) {
+    if (!perams) {
       res.status(404).json({
-        message: `How dare you delete these things!`,
+        message: `deleted`,
       });
       return;
     }
-    res.status(200).json(yeetyeet);
+    res.status(200).json(perams);
   } catch (err) {
     res.status(500).json(err);
   }
